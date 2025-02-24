@@ -1,10 +1,12 @@
 import 'dart:async';
 
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:learn_bloc/data/cart_items.dart';
 import 'package:learn_bloc/data/grocery_data.dart';
 import 'package:learn_bloc/data/wishlist_items.dart';
 import 'package:learn_bloc/feature/home/models/home_product_data_model.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 part 'home_event.dart';
@@ -56,6 +58,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> homeWishListButtonNavigateEvent(
       HomeWishListButtonNavigateEvent event, Emitter<HomeState> emit) {
     print('wishlist navigate clicked');
+
     emit(HomeNavigateToWishListPageActionState());
   }
 

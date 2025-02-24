@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:learn_bloc/feature/home/bloc/home_bloc.dart';
 import 'package:learn_bloc/feature/home/models/home_product_data_model.dart';
+import 'package:learn_bloc/feature/wishlist/bloc/wishlist_bloc.dart';
 
-class ProductTileWidget extends StatelessWidget {
+class WishlistTileWidget extends StatelessWidget {
   final ProductDataModel productDataModel;
-  final HomeBloc homeBloc;
-  const ProductTileWidget(
-      {super.key, required this.productDataModel, required this.homeBloc});
+  final WishlistBloc wishlistBloc;
+  const WishlistTileWidget(
+      {super.key, required this.productDataModel, required this.wishlistBloc});
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +39,20 @@ class ProductTileWidget extends StatelessWidget {
               ),
               Row(
                 children: [
+                  // IconButton(
+                  //     onPressed: () {
+                  //       //   homeBloc.add(HomeProductWishListButtonClickedEvent(
+                  //       //       clickedProduct: productDataModel));
+                  //       HomeBloc.add(WishListRemoveFromWishlistEvent(
+                  //           product: productDataModel));
+                  //     },
+                  //     icon: Icon(Icons.shopping_bag_outlined)),
                   IconButton(
                       onPressed: () {
-                        homeBloc.add(HomeProductWishListButtonClickedEvent(
-                            clickedProduct: productDataModel));
+                        wishlistBloc.add(WishListRemoveFromWishlistEvent(
+                            product: productDataModel));
                       },
-                      icon: Icon(Icons.favorite_border)),
-                  IconButton(
-                      onPressed: () {
-                        homeBloc.add(HomeProductCartButtonClickedEvent(
-                            clickedProduct: productDataModel));
-                      },
-                      icon: Icon(Icons.shopping_bag_outlined))
+                      icon: Icon(Icons.delete))
                 ],
               )
             ],
